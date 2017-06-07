@@ -1,4 +1,4 @@
-WorkMap = function(_parentElement, _data) {
+HometownMap = function(_parentElement, _data) {
 
 	this.parentElement = _parentElement;
 	this.data = _data;
@@ -6,7 +6,7 @@ WorkMap = function(_parentElement, _data) {
 	this.initVis();
 }
 
-WorkMap.prototype.initVis = function() {
+HometownMap.prototype.initVis = function() {
 
 	var vis = this;
 
@@ -53,7 +53,7 @@ WorkMap.prototype.initVis = function() {
 	vis.wrangleData();
 }
 
-WorkMap.prototype.wrangleData = function() {
+HometownMap.prototype.wrangleData = function() {
 	var vis = this;
 
 	vis.displayData = vis.data;

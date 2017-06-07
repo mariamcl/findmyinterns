@@ -1,4 +1,4 @@
-WorkMap = function(_parentElement, _data) {
+UniversityMap = function(_parentElement, _data) {
 
 	this.parentElement = _parentElement;
 	this.data = _data;
@@ -6,7 +6,7 @@ WorkMap = function(_parentElement, _data) {
 	this.initVis();
 }
 
-WorkMap.prototype.initVis = function() {
+UniversityMap.prototype.initVis = function() {
 
 	var vis = this;
 
@@ -53,9 +53,10 @@ WorkMap.prototype.initVis = function() {
 	vis.wrangleData();
 }
 
-WorkMap.prototype.wrangleData = function() {
+UniversityMap.prototype.wrangleData = function() {
 	var vis = this;
 
 	vis.displayData = vis.data;
 }
+
 
