@@ -7,7 +7,7 @@ var workmap;
 loadData();
 
 function loadData() {
-	d3.json("/worklocations.json", function(error, collection) {
+	d3.json("data.json", function(error, collection) {
 
 		allData = collection;
 
@@ -18,7 +18,7 @@ function loadData() {
 }
 
 function createVis() {
-	
+
 	workmap = new WorkMap("work-map", allData);
 	
 }

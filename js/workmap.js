@@ -19,17 +19,34 @@ WorkMap.prototype.initVis = function() {
 		.attr("width", width)
 		.attr("height", height);
 
-	vis.map = L.map(vis.parentElement).setView([37.8,-96.9], 5);
+	vis.map = L.map(vis.parentElement).setView([37.8,-96.9], 4);
 
-    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
     	minZoom: 4,
     	maxZoom: 10,
-    	maxBounds: [[-124.848974, 24.396308], [-66.885444, 49.384358]]
     }).addTo(vis.map);
 
+    var circles = L.markerClusterGroup();
+
 	vis.data.forEach(function(d) {
-		var marker = L.marker([d.lat, d.lng]).addTo(vis.map);
+
+		var popup = d["Full Name"];
+
+		console.log(popup);
+
+		var circle = L.marker([d.Lat, d.Long]).bindPopup(popup);
+
+		circle.on('mouseover', function (e) {
+            this.openPopup();
+        });
+        circle.on('mouseout', function (e) {
+            this.closePopup();
+        });
+
+		circles.addLayer(circle);
 	});
+
+	vis.map.addLayer(circles);
 
 	vis.wrangleData();
 }
