@@ -22,8 +22,9 @@ WorkMap.prototype.initVis = function() {
 	vis.map = L.map(vis.parentElement).setView([37.8,-96.9], 5);
 
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    	minZoom: 1.5,
-    	maxZoom: 10
+    	minZoom: 4,
+    	maxZoom: 10,
+    	maxBounds: [[-124.848974, 24.396308], [-66.885444, 49.384358]]
     }).addTo(vis.map);
 
 	vis.data.forEach(function(d) {
