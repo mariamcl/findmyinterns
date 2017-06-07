@@ -19,9 +19,9 @@ WorkMap.prototype.initVis = function() {
 		.attr("width", width)
 		.attr("height", height);
 
-	vis.map = L.map(vis.parentElement).setView([37.8,-96.9], 5);
+	vis.map = L.map(vis.parentElement).setView([37.8,-96.9], 4);
 
-    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
     	minZoom: 4,
     	maxZoom: 10,
     }).addTo(vis.map);
