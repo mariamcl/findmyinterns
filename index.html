@@ -4,7 +4,27 @@
 	<link rel="shortcut icon" href="logo_no name.png">
 	<title>Find My Intern </title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+
+  <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAlRibIosnDO4QwzUPFXGJIjeHdZDff3KE",
+      authDomain: "find-my-interns.firebaseapp.com",
+      databaseURL: "https://find-my-interns.firebaseio.com",
+      projectId: "find-my-interns",
+      storageBucket: "find-my-interns.appspot.com",
+      messagingSenderId: "167628754055"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="/__/firebase/4.1.1/firebase-database.js"></script>
+  <script src="database.js"></script>
+
 	</head>
+
+
+
 	<body>
 		<div align = "center">
 		<img src="logo_with title.png" alt="logo" style="width:300px;height:350px;">
