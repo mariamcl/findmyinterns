@@ -24,12 +24,29 @@ WorkMap.prototype.initVis = function() {
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     	minZoom: 4,
     	maxZoom: 10,
-    	maxBounds: [[-124.848974, 24.396308], [-66.885444, 49.384358]]
     }).addTo(vis.map);
 
+    var circles = L.markerClusterGroup();
+
 	vis.data.forEach(function(d) {
-		var marker = L.marker([d.lat, d.lng]).addTo(vis.map);
+
+		var popup = d["Full Name"];
+
+		console.log(popup);
+
+		var circle = L.marker([d.Lat, d.Long]).bindPopup(popup);
+
+		circle.on('mouseover', function (e) {
+            this.openPopup();
+        });
+        circle.on('mouseout', function (e) {
+            this.closePopup();
+        });
+
+		circles.addLayer(circle);
 	});
+
+	vis.map.addLayer(circles);
 
 	vis.wrangleData();
 }
