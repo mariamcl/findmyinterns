@@ -10,12 +10,10 @@
   var database = firebase.database();
 
 
-  //var map = $("#intern_list");
   function getData(){
   	$("#table").empty();
-  	// var table = $('<table></table>');
   	//get length of inputted value 
-	var x = $('#frm1').val();
+	var x = $('#search').val();
 	x = x.split(" ");
 	var length_min = x.length;
   	
@@ -31,38 +29,35 @@
   		//check if value matches name, school, c1 location or hometown
   		var i;
   		for(i=0; i <length_min; i++){
-			if(student["Last Name"].indexOf(x[i]) !== -1){
+  			x[i] = x[i].toLowerCase();
+			if(student["Last Name"].toLowerCase().indexOf(x[i]) !== -1){
 				counter++;
 			}
-			else if(student["First Name"].indexOf(x[i]) !== -1){
+			else if(student["First Name"].toLowerCase().indexOf(x[i]) !== -1){
 				counter++;
 			}
-			else if(student["Hometown"].indexOf(x[i]) !== -1){
+			else if(student["Hometown"].toLowerCase().indexOf(x[i]) !== -1){
 				counter++;
 			}
-			else if(student["School"].indexOf(x[i]) !== -1){
+			else if(student["School"].toLowerCase().indexOf(x[i]) !== -1){
 				counter++;
 			}
-			else if(student["C1 Location"].indexOf(x[i]) !== -1){
+			else if(student["C1 Location"].toLowerCase().indexOf(x[i]) !== -1){
+				counter++;
+			}
+			else if(student["Preferred Name"].toLowerCase().indexOf(x[i]) !== -1){
 				counter++;
 			}
 		}
-		if(counter==length_min){
+		if((counter==length_min) && (counter!==0)){
 			console.log(students);
-			// var maps = $('<table></table>');
-			// map.append(maps);
-			// table.append($('<tr></tr>'));
-			 var field = student["First Name"] + " " + student["Last Name"] + ", from " + student["Hometown"] + ", goes to " + student["School"] + ", working in " + student["C1 Location"];
-			// var header = $('<th> hi </th>');
-			// table.append(header);
-			// //table.append(field);
-			// map.append(table);
+			var field = student["First Name"] + " " + student["Last Name"] + ", from " + student["Hometown"] + ", goes to " + student["School"] + ", working in " + student["C1 Location"];
 			var row = $('<tr></tr>');
 			row.append($('<th>')).text(field);
 			$("#table").append(row);
 		}
   	});
-
+	  
 
   }
 
