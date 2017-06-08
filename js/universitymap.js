@@ -34,7 +34,14 @@ UniversityMap.prototype.initVis = function() {
 
 		var popup = d["Full Name"] + "<br><strong>" + d["School"] + "</strong>";
 
-		var circle = L.marker([d.Lat, d.Long]).bindPopup(popup);
+		var circle = L.marker([d.Lat, d.Long]).bindPopup(popup).on("click", onClick);
+
+		function onClick() {
+			swal({
+				title: d["Full Name"],
+				text: d["School"]
+			})
+		};
 
 		circle.on('mouseover', function (e) {
             this.openPopup();

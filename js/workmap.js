@@ -34,9 +34,14 @@ WorkMap.prototype.initVis = function() {
 
 		var popup = d["Full Name"] + "<br><strong>" + d["C1 Location"] + "</strong>";
 
-		console.log(popup);
+		var circle = L.marker([d.Lat, d.Long]).bindPopup(popup).on("click", onClick);
 
-		var circle = L.marker([d.Lat, d.Long]).bindPopup(popup);
+		function onClick() {
+			swal({
+				title: d["Full Name"],
+				text: d["C1 Location"]
+			})
+		};
 
 		circle.on('mouseover', function (e) {
             this.openPopup();
