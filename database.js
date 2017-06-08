@@ -51,10 +51,9 @@
 		}
 		if((counter==length_min) && (counter!==0)){
 			console.log(students);
-			var field = student["First Name"] + " " + student["Last Name"] + ", from " + student["Hometown"] + ", goes to " + student["School"] + ", working in " + student["C1 Location"];
+			 var field = student["First Name"] + " " + student["Last Name"] + ", from " + student["Hometown"] + ", goes to " + student["School"] + ", working in " + student["C1 Location"];
 			var row = $('<tr></tr>');
 			row.append($('<th>')).text(field);
-			var contactInfo = "" + student["Phone Number"] + " " + student["Email"] + " " + student["Facebook"] + " Instagram: " + student["Instagram"] + ", Twitter: " + student["Twitter"];
 			$("#table").append(row);
 		}
   	});
