@@ -13,7 +13,7 @@
   function getData(){
   	$("#table").empty();
   	//get length of inputted value 
-	var x = $('#frm1').val();
+	var x = $('#search').val();
 	x = x.split(" ");
 	var length_min = x.length;
   	
