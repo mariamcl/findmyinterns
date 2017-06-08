@@ -12,14 +12,14 @@ WorkMap.prototype.initVis = function() {
 
 	console.log(vis.data);
 
-	var width = 500,
-		height = 600;
+	var width = 960,
+		height = 500;
 
 	var svg = d3.select("#" + vis.parentElement).append("svg")
 		.attr("width", width)
 		.attr("height", height);
 
-	vis.map = L.map(vis.parentElement, {maxBounds: L.latLngBounds(L.latLng(-81, -181, true), L.latLng(91, 191, true))});
+	vis.map = L.map(vis.parentElement, {center: [37.8, -96.9], zoom: 4});
 
     L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
     	minZoom: 2,
