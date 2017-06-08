@@ -1,10 +1,74 @@
   var config = {
     apiKey: "AIzaSyAlRibIosnDO4QwzUPFXGJIjeHdZDff3KE",
     authDomain: "find-my-interns.firebaseapp.com",
-    databaseURL: "https://find-my-interns.firebaseio.com/",
+    databaseURL: "https://find-my-interns.firebaseio.com",
     storageBucket: "find-my-interns.appspot.com"
   };
   firebase.initializeApp(config);
 
   // Get a reference to the database service
   var database = firebase.database();
+
+
+  //var map = $("#intern_list");
+  function getData(){
+  	$("#table").empty();
+  	// var table = $('<table></table>');
+  	//get length of inputted value 
+	var x = $('#frm1').val();
+	x = x.split(" ");
+	var length_min = x.length;
+  	
+  	//parses through each intern one at a time 
+  	var studentsRef = firebase.database().ref('interns');
+  	studentsRef.orderByChild("Last Name").on("child_added", function(data) {	
+  		//convert value into json
+  		var students =JSON.stringify(data);
+  		var student = JSON.parse(students);
+
+  		//counter to keep track of matches 
+  		var counter = 0;
+  		//check if value matches name, school, c1 location or hometown
+  		var i;
+  		for(i=0; i <length_min; i++){
+			if(student["Last Name"].indexOf(x[i]) !== -1){
+				counter++;
+			}
+			else if(student["First Name"].indexOf(x[i]) !== -1){
+				counter++;
+			}
+			else if(student["Hometown"].indexOf(x[i]) !== -1){
+				counter++;
+			}
+			else if(student["School"].indexOf(x[i]) !== -1){
+				counter++;
+			}
+			else if(student["C1 Location"].indexOf(x[i]) !== -1){
+				counter++;
+			}
+		}
+		if(counter==length_min){
+			console.log(students);
+			// var maps = $('<table></table>');
+			// map.append(maps);
+			// table.append($('<tr></tr>'));
+			 var field = student["First Name"] + " " + student["Last Name"] + ", from " + student["Hometown"] + ", goes to " + student["School"] + ", working in " + student["C1 Location"];
+			// var header = $('<th> hi </th>');
+			// table.append(header);
+			// //table.append(field);
+			// map.append(table);
+			var row = $('<tr></tr>');
+			row.append($('<th>')).text(field);
+			$("#table").append(row);
+		}
+  	});
+
+
+  }
+
+
+
+  $(document).ready(function(){
+  	var button = $("#button1");
+
+  });
