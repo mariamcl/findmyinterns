@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test</title>
+<script src = "https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAlRibIosnDO4QwzUPFXGJIjeHdZDff3KE",
+      authDomain: "find-my-interns.firebaseapp.com",
+      databaseURL: "https://find-my-interns.firebaseio.com",
+      projectId: "find-my-interns",
+      storageBucket: "find-my-interns.appspot.com",
+      messagingSenderId: "167628754055"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase-database.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="database.js"></script></head>
+<body>
+	<input type="text" name="data" id="frm1">
+	<button id="button1" onclick="getData()"> Submit </button>
+
+	<div id="intern_list">
+		<table id="table">
+		</table>
+	</div>
+
+</body>
+</html>
