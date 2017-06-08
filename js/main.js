@@ -1,5 +1,6 @@
 //Main JS file
-var allData = [];
+var hometownData = [];
+var workData = [];
 
 
 var hometownmap;
@@ -7,20 +8,32 @@ var hometownmap;
 var googleAPI = "https://maps.googleapis.com/maps/api/geocode/json?address=";
 
 loadData();
+loadDataWork();
 
 function loadData() {
 	d3.json("data.json", function(error, collection) {
 
-		allData = collection;
+		hometownData = collection;
 
-		console.log(allData);
-
-  		createVis();
+  		createVisHome();
 	});
 }
 
-function createVis() {
+function loadDataWork() {
+	d3.json("intern_workdata.json", function(error, collection) {
 
-	hometownmap = new HometownMap("hometown-map", allData);
+		workData = collection;
+
+  		createVisWork();
+	});
+}
+
+function createVisHome() {
+
+	hometownmap = new HometownMap("hometown-map", hometownData);
 	
+}
+
+function createVisWork() {
+	workmap = new WorkMap("work-map", workData);
 }
