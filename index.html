@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 	<head>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -29,13 +30,13 @@
   <script src="/__/firebase/4.1.1/firebase-database.js"></script>
   <script src="database.js"></script>
   </head>
-	<body>
-	<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <body>
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" href="index.html">
-  	<img src="logo_no name_back.png" width="30" height="35" class="d-inline-block align-top"> Find My Intern</a>
+    <img src="logo_no name_back.png" width="30" height="35" class="d-inline-block align-top"> Find My Intern</a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -73,32 +74,50 @@
   padding-top: 400px;
   width:100%;
 }
+.Search {
+  width: 60%;
+   float:left;
+ }
+
+ #button1 {
+  clear: left;
+ }
 </style>
 
-<div id="wrap" align="center">
+<div id="wrap">
     <div id="left_col" align = "center">
         <h3>We are the Capital One intern class of 2018. Use the search tool to find out where we are working this summer, where we go to college, and our hometowns.</h3>
         <br/>
-      <form class="form-inline" align="center">
-        <div class="Search bar" align="center">
-          <input type="search" class="form-control" id="search" placeholder="Search">
-        <button type="submit" class="btn btn-primary">Search</button>
+        <div class="Search" >
+          <input type="text" class="form-control" id="search" placeholder="Search">
+          
         </div>
-      </form>
+        <button id="button1" class="btn btn-primary" onclick="var data = getData()">Search</button> 
+
+
     </div>
     <div id="right_col" align = "center">
         <img src="logo_with title_small.png" alt="logo" style ="width:300px">
     </div>
 </div>
 <br/>
-		<div id="whole_page" align = "center">
+    <div id="whole_page" align = "center">
         <line/>
+        <table id="table"> 
+          <script>
+          document.write(data)
+          </script> 
+          </table>
         <br/>
-		<h1>Number of Vistors:</h1>
-			<div align="center"><img src="http://simplehitcounter.com/hit.php?uid=2274170&f=16777215&b=0" border="0" height="40" width="200"></div>
+    <h1>Number of Vistors:</h1>
+      <div align="center"><img src="http://simplehitcounter.com/hit.php?uid=2274170&f=16777215&b=0" border="0" height="40" width="200"></div>
+      <footer align="center" position="fixed" bottom=0><img src="cap one logo.png" width="82" height="31" style = "padding-top: 5px">
+  Rosie Brezynski, Maria McLaughlin, Paige Sullivan. 2017</footer>
 
 
+  </div>
 
+<<<<<<< HEAD
 	</div>
 
 	<script src="js/d3.min.js"></script>
@@ -114,4 +133,17 @@
 	</body>
   <div class="footer" align="center"><img src="cap one logo.png" width="82" height="31" style = "padding-top: 5px">
   Rosie Brezynski, Maria McLaughlin, Paige Sullivan. 2017</div>
+=======
+  <script src="js/d3.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/leaflet.js"></script>
+  <script src="js/leaflet.markercluster.js"></script>
+  <script src="js/leaflet.markercluster-src.js"></script>
+  <script src="js/sweetalert.min.js"></script>
+  <script src="js/universitymap.js"></script>
+  <script src="js/workmap.js"></script>
+  <script src="js/main.js"></script>
+  </body>
+  
+>>>>>>> d3111886605797faff1be73adf13b95cbbdaf062
 </html>
