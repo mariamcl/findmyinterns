@@ -72,16 +72,25 @@
   padding-top: 400px;
   width:100%;
 }
+.Search {
+   padding-left: 10px;
+   float:left;
+ }
+
+ #button1 {
+  clear: left;
+ }
 </style>
 
-<div id="wrap" align="center">
+<div id="wrap">
     <div id="left_col" align = "center">
         <h3>We are the Capital One intern class of 2018. Use the search tool to find out where we are working this summer, where we go to college, and our hometowns.</h3>
         <br/>
-        <div class="Search bar" >
+        <div class="Search" >
           <input type="text" class="form-control" id="search" placeholder="Search">
-          <button id="button1" class="btn btn-primary" onclick="var data = getData()">Search</button> 
+          
         </div>
+        <button id="button1" class="btn btn-primary" onclick="var data = getData()">Search</button> 
 
 
     </div>
