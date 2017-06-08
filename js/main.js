@@ -2,7 +2,9 @@
 var allData = [];
 
 
-var workmap;
+var hometownmap;
+
+var googleAPI = "https://maps.googleapis.com/maps/api/geocode/json?address=";
 
 loadData();
 
@@ -19,6 +21,6 @@ function loadData() {
 
 function createVis() {
 
-	workmap = new WorkMap("work-map", allData);
+	hometownmap = new HometownMap("hometown-map", allData);
 	
 }
