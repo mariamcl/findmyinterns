@@ -41,6 +41,7 @@ HometownMap.prototype.initVis = function() {
 				title: d["Full Name"],
 				text: d["Hometown"],
 				showCancelButton: true,
+				html: true,
 				confirmButtonText: "Add Info",
 				closeOnConfirm: false
 			},

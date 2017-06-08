@@ -39,8 +39,9 @@ WorkMap.prototype.initVis = function() {
 		function onClick() {
 			swal({
 				title: d["Full Name"],
-				text: d["Hometown"],
+				text: d["C1 Location"],
 				showCancelButton: true,
+				html: true,
 				confirmButtonText: "Add Info",
 				closeOnConfirm: false
 			},

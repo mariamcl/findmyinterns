@@ -39,7 +39,8 @@ UniversityMap.prototype.initVis = function() {
 		function onClick() {
 			swal({
 				title: d["Full Name"],
-				text: d["Hometown"],
+				text: d["School"],
+				html: true,
 				showCancelButton: true,
 				confirmButtonText: "Add Info",
 				closeOnConfirm: false
