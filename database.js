@@ -11,7 +11,8 @@
 
 
   function getData(){
-  	$("#table").empty();
+  	$('#interns').empty();
+  	$('#interns').append($('<br></br>'));
   	//get length of inputted value 
 	var x = $('#search').val();
 	x = x.split(" ");
@@ -52,20 +53,23 @@
 		if((counter==length_min) && (counter!==0)){
 			console.log(students);
 			//var field = student["First Name"] + " " + student["Last Name"] + ", from " + student["Hometown"] + ", goes to " + student["School"] + ", working in " + student["C1 Location"];
+			var table = $('<table></table>')
 			var name = student["Full Name"];
 			var uni = student["School"];
-			var row = $('<tr><td>' + name + '</td><td>' + uni + '</td></tr>');
-			$("#table").append(row);
+			var row = $('<tr><td id="id1">' + name + '</td><td id="id2">' + uni + '</td></tr>');
+			table.append(row);
 			var work = "Working in: " + student["C1 Location"];
-			row = $('<tr><td>' + work + '</td></tr>');
-			$('#table').append(row);
 			var from = "Hometown: " + student["Hometown"];
-			row = $('<tr><td>' + from + '</td></tr>');
-			$('#table').append(row);
+			row = $('<tr><td id="id1">' + work + '</td><td id="id2">' + from + '</td></tr>');
+			table.append(row);
 			var phone = "Phone: " + student["Phone Number"];
 			var email = "Email: " + student["Email"];
-			row = $('<tr><td>' + phone + '</td><td>' + email + '</td></tr>');			
-			$('#table').append(row);
+			row = $('<tr><td id="id1">' + phone + '</td><td id="id2">' + email + '</td></tr>');			
+			table.append(row);
+			//$('#table').append($('<tr><td>     </td></tr>'));
+			//$('#table').append($('<tr><td>     </td></tr>'));
+			$('#interns').append(table);
+			$('#interns').append($('<br></br>'));
 		}
   	});
 	  
