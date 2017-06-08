@@ -51,10 +51,21 @@
 		}
 		if((counter==length_min) && (counter!==0)){
 			console.log(students);
-			 var field = student["First Name"] + " " + student["Last Name"] + ", from " + student["Hometown"] + ", goes to " + student["School"] + ", working in " + student["C1 Location"];
-			var row = $('<tr></tr>');
-			row.append($('<th>')).text(field);
+			//var field = student["First Name"] + " " + student["Last Name"] + ", from " + student["Hometown"] + ", goes to " + student["School"] + ", working in " + student["C1 Location"];
+			var name = student["Full Name"];
+			var uni = student["School"];
+			var row = $('<tr><td>' + name + '</td><td>' + uni + '</td></tr>');
 			$("#table").append(row);
+			var work = "Working in: " + student["C1 Location"];
+			row = $('<tr><td>' + work + '</td></tr>');
+			$('#table').append(row);
+			var from = "Hometown: " + student["Hometown"];
+			row = $('<tr><td>' + from + '</td></tr>');
+			$('#table').append(row);
+			var phone = "Phone: " + student["Phone Number"];
+			var email = "Email: " + student["Email"];
+			row = $('<tr><td>' + phone + '</td><td>' + email + '</td></tr>');			
+			$('#table').append(row);
 		}
   	});
 	  
