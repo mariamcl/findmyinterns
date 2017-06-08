@@ -12,8 +12,8 @@ WorkMap.prototype.initVis = function() {
 
 	console.log(vis.data);
 
-	var width = 960,
-		height = 500;
+	var width = 500,
+		height = 600;
 
 	var svg = d3.select("#" + vis.parentElement).append("svg")
 		.attr("width", width)
@@ -39,9 +39,44 @@ WorkMap.prototype.initVis = function() {
 		function onClick() {
 			swal({
 				title: d["Full Name"],
-				text: d["C1 Location"]
-			})
-		};
+				text: d["Hometown"],
+				showCancelButton: true,
+				confirmButtonText: "Add Info",
+				closeOnConfirm: false
+			},
+			function () {
+				swal({
+				  title: "Add your Phone Number",
+  				  type: "input",
+				  showCancelButton: true,
+				  closeOnConfirm: false,
+				  confirmButtonText: "Next",
+				  inputPlaceholder: "phone number"
+			},
+			function (inputvalue1) {
+					if (inputvalue1 === false) return false;
+
+					if (inputvalue1 === "") {
+						return false;
+					}
+
+					swal({
+					  title: "Add a your email",
+	  				  type: "input",
+					  showCancelButton: true,
+					  closeOnConfirm: false,
+					  inputPlaceholder: "email"
+					},
+					function(inputvalue2) {
+						if (inputvalue1 === false) return false;
+
+						if (inputvalue1 === "") {
+							return false;
+						}
+							swal("Nice!", "You updated your information!", 	writeUserData(d["EIDs"], inputvalue1, inputvalue2))
+						}
+
+			)})})};
 
 		circle.on('mouseover', function (e) {
             this.openPopup();
@@ -52,6 +87,21 @@ WorkMap.prototype.initVis = function() {
 
 		circles.addLayer(circle);
 	});
+
+		function writeUserData(EID, phonenumber, email) {
+		var studentsRef = firebase.database().ref('interns');
+		var counter = 0;
+  		studentsRef.orderByChild("Last Name").on("child_added", function(data) {
+  			var interns = JSON.stringify(data);
+  			var intern = JSON.parse(interns);
+			if (intern["EIDs"] == EID) {
+				firebase.database().ref('interns/' + counter).update({
+				"Phone Number": phonenumber,
+		    	Email: email
+	  		});
+		}
+		counter++;
+	})};
 
 	vis.map.addLayer(circles);
 

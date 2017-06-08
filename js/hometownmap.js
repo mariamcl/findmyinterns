@@ -39,9 +39,44 @@ HometownMap.prototype.initVis = function() {
 		function onClick() {
 			swal({
 				title: d["Full Name"],
-				text: d["Hometown"]
-			})
-		}
+				text: d["Hometown"],
+				showCancelButton: true,
+				confirmButtonText: "Add Info",
+				closeOnConfirm: false
+			},
+			function () {
+				swal({
+				  title: "Add your Phone Number",
+  				  type: "input",
+				  showCancelButton: true,
+				  closeOnConfirm: false,
+				  confirmButtonText: "Next",
+				  inputPlaceholder: "phone number"
+			},
+			function (inputvalue1) {
+					if (inputvalue1 === false) return false;
+
+					if (inputvalue1 === "") {
+						return false;
+					}
+
+					swal({
+					  title: "Add a your email",
+	  				  type: "input",
+					  showCancelButton: true,
+					  closeOnConfirm: false,
+					  inputPlaceholder: "email"
+					},
+					function(inputvalue2) {
+						if (inputvalue1 === false) return false;
+
+						if (inputvalue1 === "") {
+							return false;
+						}
+							swal("Nice!", "You updated your information!", 	writeUserData(d["EIDs"], inputvalue1, inputvalue2))
+						}
+
+			)})})};
 
 		circle.on('mouseover', function (e) {
             this.openPopup();
@@ -52,6 +87,21 @@ HometownMap.prototype.initVis = function() {
 
 		circles.addLayer(circle);
 	});
+
+	function writeUserData(EID, phonenumber, email) {
+		var studentsRef = firebase.database().ref('interns');
+		var counter = 0;
+  		studentsRef.orderByChild("Last Name").on("child_added", function(data) {
+  			var interns = JSON.stringify(data);
+  			var intern = JSON.parse(interns);
+			if (intern["EIDs"] == EID) {
+				firebase.database().ref('interns/' + counter).update({
+				"Phone Number": phonenumber,
+		    	Email: email
+	  		});
+		}
+		counter++;
+	})};
 
 	vis.map.addLayer(circles);
 
