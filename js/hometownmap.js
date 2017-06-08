@@ -32,9 +32,7 @@ HometownMap.prototype.initVis = function() {
 
 	vis.data.forEach(function(d) {
 
-		var popup = d["Full Name"];
-
-		console.log(popup);
+		var popup = d["Full Name"] + "<br><strong>" + d["Hometown"] + "</strong>";
 
 		var circle = L.marker([d.Lat, d.Long]).bindPopup(popup);
 

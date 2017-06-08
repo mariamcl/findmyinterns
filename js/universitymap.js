@@ -19,7 +19,7 @@ UniversityMap.prototype.initVis = function() {
 		.attr("width", width)
 		.attr("height", height);
 
-	vis.map = L.map(vis.parentElement, {maxBounds: L.latLngBounds(L.latLng(-81, -181, true), L.latLng(91, 191, true))});
+	vis.map = L.map(vis.parentElement, {center: [37.8, -96.9], zoom: 4});
 
     L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
     	minZoom: 2,
@@ -32,9 +32,7 @@ UniversityMap.prototype.initVis = function() {
 
 	vis.data.forEach(function(d) {
 
-		var popup = d["Full Name"];
-
-		console.log(popup);
+		var popup = d["Full Name"] + "<br><strong>" + d["School"] + "</strong>";
 
 		var circle = L.marker([d.Lat, d.Long]).bindPopup(popup);
 

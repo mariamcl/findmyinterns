@@ -32,7 +32,7 @@ WorkMap.prototype.initVis = function() {
 
 	vis.data.forEach(function(d) {
 
-		var popup = d["Full Name"];
+		var popup = d["Full Name"] + "<br><strong>" + d["C1 Location"] + "</strong>";
 
 		console.log(popup);
 
